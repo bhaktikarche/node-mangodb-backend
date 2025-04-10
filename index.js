@@ -2,10 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./Models/User.js');
+const productRoutes = require('./Routes/productRoutes.js')
+
 
 const server = express();
 server.use(cors());
 server.use(express.json());
+server.use('/Product',productRoutes)
 
 mongoose.connect('mongodb+srv://Bhakti:Bhakti%4023@cluster0.exrbep9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => console.log('Database connected successfully'))
